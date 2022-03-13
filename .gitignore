@@ -1,0 +1,9 @@
+# Project exclude paths
+/.gradle/
+/Indigo Card Game/task/build/
+/Indigo Card Game/task/out/
+/Indigo Card Game/task/out/production/classes/
+/Topics/Lambda expressions/Polynomial/out/
+/Topics/Lambda expressions/Polynomial/out/production/classes/
+/Topics/Scopes/Power and scopes/out/
+/Topics/Scopes/Power and scopes/out/production/classes/

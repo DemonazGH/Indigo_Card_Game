@@ -1,0 +1,1 @@
+val lambda: (Int) -> Int = TODO("Provide implementation")
