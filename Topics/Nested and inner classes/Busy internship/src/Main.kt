@@ -6,9 +6,5 @@ class Intern(val weeklyWorkload: Int) {
         val extraHoursPay = 2.8
     }
 
-    val weeklySalary = if (baseWorkload <= 20) {
-        Salary().basePay
-    } else {
-
-    }
+    val weeklySalary = ...
 }

@@ -1,0 +1,16 @@
+type: code
+files:
+- name: src/Main.kt
+  visible: true
+  text: |-
+    class Task(val name: String)
+
+    // create the Manager singleton here
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/10703#comment
+status: Failed
+feedback:
+  message: |
+    Failed test #1 of 3. Wrong answer
+  time: Sat, 19 Mar 2022 10:35:37 UTC
+record: -1

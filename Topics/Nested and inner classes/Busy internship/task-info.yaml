@@ -15,5 +15,15 @@ files:
     }
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/14732#comment
-status: Unchecked
+status: Failed
+feedback:
+  message: |
+    Compilation error
+    main.kt:9:23: error: expecting an expression
+        val weeklySalary = ...
+                          ^
+    main.kt:9:24: error: property getter or setter expected
+        val weeklySalary = ...
+                           ^
+  time: Sat, 19 Mar 2022 11:01:26 UTC
 record: -1

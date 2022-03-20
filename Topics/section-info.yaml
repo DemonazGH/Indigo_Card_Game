@@ -4,3 +4,5 @@ content:
 - Lambda expressions
 - Scopes
 - Nested and inner classes
+- Floating-point types
+- Object declarations
