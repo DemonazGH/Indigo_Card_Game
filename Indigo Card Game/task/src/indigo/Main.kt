@@ -1,74 +1,103 @@
 package indigo
 
-class Card(val rank: String, val suite: String) {
+import indigo.GameDeck.getPrompt
+
+class Card(private val rank: String, private val suite: String) {
     override fun toString(): String {
         return "$rank$suite"
     }
 }
 
-fun main() {
-    val ranks = mutableListOf<String>("A","2","3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K")
-    val suites = mutableListOf<String>("♦", "♥", "♠", "♣")
-    println(ranks.joinToString(" "))
-    println(suites.joinToString(" "))
-    val packOfCards = mutableListOf<Card>()
-    for (suite in suites) {
-        for (rank in ranks) {
-            packOfCards.add(Card(rank, suite))
+object GameDeck {
+    private val ranks = mutableListOf("A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K")
+    private val suites = mutableListOf("♦", "♥", "♠", "♣")
+    private lateinit var packOfCards: MutableList<Card>
+
+    /*
+     */
+    fun newDeck(): MutableList<Card> {
+        packOfCards = mutableListOf()
+        for (suite in suites) {
+            for (rank in ranks) {
+                packOfCards.add(Card(rank, suite))
+            }
+        }
+        return packOfCards.shuffled().toMutableList()
+    }
+
+    /*
+     */
+    fun shuffle(packOfCards: MutableList<Card>): MutableList<Card> {
+        return packOfCards.shuffled().toMutableList()
+    }
+
+    /*
+     */
+    fun getPrompt(packOfCards: MutableList<Card>): String {
+        print("Number of cards:")
+        val inputSpring = readln().toIntOrNull()
+        return if (inputSpring != null) {
+            if (inputSpring == 0 || inputSpring > 52) {
+                println("Invalid number of cards.")
+                "-1"
+            } else if (inputSpring > packOfCards.lastIndex + 1 || inputSpring < 0) {
+                println("The remaining cards are insufficient to meet the request.")
+                "-1"
+            } else {
+                inputSpring.toString()
+            }
+        } else {
+            println("Invalid number of cards.")
+            "-1"
         }
     }
-    //println(packOfCards)
-    val shufPackOfCards = packOfCards.shuffled().toMutableList()
-    println(shufPackOfCards)
-    //println(shufPackOfCards)
-    mainMenu(shufPackOfCards)
+
+    /*
+ */
+    fun reset(): MutableList<Card> {
+        return newDeck()
+    }
 }
 
+fun main() {
+    val packOfCards = GameDeck.newDeck()
+    val gamerDeck = mutableListOf<Card>()
+    mainMenu(packOfCards, gamerDeck)
+}
 
-fun mainMenu(pack: MutableList<Card>) {
+/*
+ */
+fun mainMenu(packOfCards: MutableList<Card>, gamerDeck: MutableList<Card>) {
+    var gamePackOfCards = packOfCards
     var checker = 0
     while (checker == 0) {
         print("Choose an action (reset, shuffle, get, exit):")
-        val inputString = readln()
-        when (inputString) {
+        when (readln()) {
             "reset" -> {
-                reset()
-                checker++
+                gamePackOfCards = GameDeck.reset()
+                gamerDeck.clear()
+                println("Card deck is reset.")
             }
             "shuffle" -> {
-                shuffle()
-                checker++
+                GameDeck.shuffle(gamePackOfCards)
+                println("Card deck is shuffled.")
             }
             "get" -> {
-                getCard(pack)
+                val gett = getPrompt(gamePackOfCards).toInt()
+                if (gett > 0) {
+                    val range = (0..gett)
+                    for (i in range - 1) {
+                        gamerDeck.add(gamePackOfCards[0])
+                        gamePackOfCards.removeAt(0)
+                    }
+                    println(gamerDeck.joinToString(" "))
                 }
+            }
             "exit" -> {
-                exitGame()
+                println("Bye")
                 checker++
             }
             else -> println("Wrong action.")
         }
-
     }
-}
-
-fun reset() {
-    TODO("Not yet implemented")
-}
-
-fun getCard(pack: MutableList<Card>) {
-    print("Number of cards:")
-    var number = readln().toInt()
-    for (i in 0..number - 1) {
-        print("${pack[i]} ")
-    }
-    println()
-}
-
-fun exitGame() {
-    println("Bye")
-}
-
-fun shuffle() {
-    TODO("Not yet implemented")
 }
