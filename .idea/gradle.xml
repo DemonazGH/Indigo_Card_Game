@@ -8,7 +8,7 @@
         <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleJvm" value="openjdk-16" />
+        <option name="gradleJvm" value="#JAVA_INTERNAL" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
@@ -28,6 +28,10 @@
             <option value="$PROJECT_DIR$/Topics/Functional decomposition/Create a full name" />
             <option value="$PROJECT_DIR$/Topics/Functional decomposition/Decompose a math function" />
             <option value="$PROJECT_DIR$/Topics/Functional decomposition/Theory" />
+            <option value="$PROJECT_DIR$/Topics/Hierarchy of exceptions/ArithmeticException" />
+            <option value="$PROJECT_DIR$/Topics/Hierarchy of exceptions/Fix the code" />
+            <option value="$PROJECT_DIR$/Topics/Hierarchy of exceptions/RuntimeException" />
+            <option value="$PROJECT_DIR$/Topics/Hierarchy of exceptions/Theory" />
             <option value="$PROJECT_DIR$/Topics/Lambda expressions/ Not  predicate" />
             <option value="$PROJECT_DIR$/Topics/Lambda expressions/Function composition" />
             <option value="$PROJECT_DIR$/Topics/Lambda expressions/Max" />
@@ -35,6 +39,13 @@
             <option value="$PROJECT_DIR$/Topics/Lambda expressions/Syntactic sugar" />
             <option value="$PROJECT_DIR$/Topics/Lambda expressions/Syntax" />
             <option value="$PROJECT_DIR$/Topics/Lambda expressions/Theory" />
+            <option value="$PROJECT_DIR$/Topics/Named arguments/Car price" />
+            <option value="$PROJECT_DIR$/Topics/Named arguments/Deposit" />
+            <option value="$PROJECT_DIR$/Topics/Named arguments/Determine the result" />
+            <option value="$PROJECT_DIR$/Topics/Named arguments/Find the correct invocations" />
+            <option value="$PROJECT_DIR$/Topics/Named arguments/Greeting" />
+            <option value="$PROJECT_DIR$/Topics/Named arguments/Perimeter" />
+            <option value="$PROJECT_DIR$/Topics/Named arguments/Theory" />
             <option value="$PROJECT_DIR$/Topics/Nested and inner classes/Busy internship" />
             <option value="$PROJECT_DIR$/Topics/Nested and inner classes/Christmas tree" />
             <option value="$PROJECT_DIR$/Topics/Nested and inner classes/Improve your vehicle" />
@@ -43,6 +54,15 @@
             <option value="$PROJECT_DIR$/Topics/Nested and inner classes/Theory" />
             <option value="$PROJECT_DIR$/Topics/Nested and inner classes/Why do we need inner classes" />
             <option value="$PROJECT_DIR$/Topics/Nested and inner classes/Your vehicle" />
+            <option value="$PROJECT_DIR$/Topics/Null safety/Avoiding an NPE" />
+            <option value="$PROJECT_DIR$/Topics/Null safety/Check length" />
+            <option value="$PROJECT_DIR$/Topics/Null safety/Elvis throwing exceptions" />
+            <option value="$PROJECT_DIR$/Topics/Null safety/Fake operator" />
+            <option value="$PROJECT_DIR$/Topics/Null safety/Nullable Boolean" />
+            <option value="$PROJECT_DIR$/Topics/Null safety/Operator name" />
+            <option value="$PROJECT_DIR$/Topics/Null safety/Safe round" />
+            <option value="$PROJECT_DIR$/Topics/Null safety/The  !!  operator" />
+            <option value="$PROJECT_DIR$/Topics/Null safety/Theory" />
             <option value="$PROJECT_DIR$/Topics/Object declarations/Blocks in a box" />
             <option value="$PROJECT_DIR$/Topics/Object declarations/Library" />
             <option value="$PROJECT_DIR$/Topics/Object declarations/Manager" />
@@ -58,6 +78,13 @@
             <option value="$PROJECT_DIR$/Topics/Secondary constructor/Frozen desserts" />
             <option value="$PROJECT_DIR$/Topics/Secondary constructor/Spot the error" />
             <option value="$PROJECT_DIR$/Topics/Secondary constructor/Theory" />
+            <option value="$PROJECT_DIR$/Topics/Type system/Can it go through" />
+            <option value="$PROJECT_DIR$/Topics/Type system/Hello" />
+            <option value="$PROJECT_DIR$/Topics/Type system/Oops, something went wrong" />
+            <option value="$PROJECT_DIR$/Topics/Type system/Reverse me if you can" />
+            <option value="$PROJECT_DIR$/Topics/Type system/String length" />
+            <option value="$PROJECT_DIR$/Topics/Type system/String or Int" />
+            <option value="$PROJECT_DIR$/Topics/Type system/Theory" />
             <option value="$PROJECT_DIR$/util" />
           </set>
         </option>

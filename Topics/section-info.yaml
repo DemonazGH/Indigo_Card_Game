@@ -6,3 +6,7 @@ content:
 - Nested and inner classes
 - Floating-point types
 - Object declarations
+- Hierarchy of exceptions
+- Named arguments
+- Null safety
+- Type system

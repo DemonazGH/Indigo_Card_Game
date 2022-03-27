@@ -6,8 +6,3 @@ object Math {
         return kotlin.math.abs(num)
     }
 }
-
-//fun main() {
-//    Math.abs(-9.8)
-//
-//}
