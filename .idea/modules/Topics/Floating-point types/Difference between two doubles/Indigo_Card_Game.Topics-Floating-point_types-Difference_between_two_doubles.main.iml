@@ -44,7 +44,7 @@
     </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_11">
-    <output url="file://$MODULE_DIR$/../../../../../Topics/Floating-point types/Difference between two doubles/out/production/classes" />
+    <output url="file://$MODULE_DIR$/../../../../../Topics/Floating-point types/Difference between two doubles/build/classes/java/main" />
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../../../Topics/Floating-point types/Difference between two doubles/src">
       <sourceFolder url="file://$MODULE_DIR$/../../../../../Topics/Floating-point types/Difference between two doubles/src" isTestSource="false" />

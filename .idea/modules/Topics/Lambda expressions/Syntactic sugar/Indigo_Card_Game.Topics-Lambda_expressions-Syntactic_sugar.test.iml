@@ -62,7 +62,7 @@
     </facet>
   </component>
   <component name="NewModuleRootManager">
-    <output-test url="file://$MODULE_DIR$/../../../../../Topics/Lambda expressions/Syntactic sugar/out/test/classes" />
+    <output-test url="file://$MODULE_DIR$/../../../../../Topics/Lambda expressions/Syntactic sugar/build/classes/java/test" />
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../../../Topics/Lambda expressions/Syntactic sugar/src/test" />
     <content url="file://$MODULE_DIR$/../../../../../Topics/Lambda expressions/Syntactic sugar/test" />

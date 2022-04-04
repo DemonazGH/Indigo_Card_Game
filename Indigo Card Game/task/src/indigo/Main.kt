@@ -1,113 +1,7 @@
 package indigo
 
-import kotlin.random.Random
-
-class Player(
-    val inHand: MutableList<Card>,
-    val winCards: MutableList<Card>,
-    val name: String,
-    var lastWin: Boolean = false,
-    var first: Boolean = false
-) {
-    var score = 0
-
-    /* Player draws cards from the deck */
-    fun fillDeck(inHand: MutableList<Card>, packOfCards: MutableList<Card>): MutableList<Card> {
-        inHand.addAll(GameDeck.transferCards(packOfCards))
-        return inHand
-    }
-
-    /* score calculation */
-    fun scoreCard(player: Player) {
-        var counter = 0
-        for (it in player.winCards) {
-            if (it.returnRank() == "A" || it.returnRank() == "Q" || it.returnRank() == "K"
-                || it.returnRank() == "J" || it.returnRank() == "10"
-            )
-                counter++
-        }
-        player.score = counter
-    }
-
-    /* generates random card when PC moves*/
-    fun getRandomCard(player: Player): Card {
-        val card = player.inHand.get(Random.nextInt(0, player.inHand.size))
-        //  println(getCardPos(inHand, card))
-        return card
-    }
-
-    /* defines generated card's position in PC's deck*/
-    fun getCardPos(inHand: MutableList<Card>, card: Card): Int {
-        return inHand.indexOf(card)
-    }
-}
-
-/* operations with cards */
-object GameDeck {
-    private val ranks = mutableListOf("A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K")
-    private val suites = mutableListOf("♦", "♥", "♠", "♣")
-    private lateinit var packOfCards: MutableList<Card>
-
-    /*Transferring to the table 4 cards at the beginning of the game*/
-    fun transToTableCards(packOfCards: MutableList<Card>): MutableList<Card> {
-        val trans = packOfCards.slice(0..3)
-        packOfCards.removeAll(packOfCards.slice(0..3))
-        return trans.toMutableList()
-    }
-
-    /* transferring cards from the game deck to the players' decks */
-    fun transferCards(
-        packOfCards: MutableList<Card>
-    ): MutableList<Card> {
-        val transfercards = mutableListOf<Card>()
-        transfercards.addAll(packOfCards.slice(0..5))
-        packOfCards.removeAll(packOfCards.slice(0..5))
-        return transfercards
-
-    }
-
-    /* Generating of the new shuffled game deck */
-    fun newDeck(): MutableList<Card> {
-        packOfCards = mutableListOf()
-        for (suite in suites) {
-            for (rank in ranks) {
-                packOfCards.add(Card(rank, suite))
-            }
-        }
-        return packOfCards.shuffled().toMutableList()
-    }
-
-    /* transfering cards from table to winner */
-    fun ifWinTransferCards(
-        inHand: MutableList<Card>,
-        winCards: MutableList<Card>,
-        tableCards: MutableList<Card>,
-        choice: Int
-    ) {
-        winCards.add(inHand[choice])
-        winCards.addAll(tableCards)
-        tableCards.clear()
-        inHand.removeAt(choice)
-    }
-}
-
-class Card(private val rank: String, private val suite: String) {
-    override fun toString(): String {
-        return "$rank$suite"
-    }
-
-    fun returnSuite(): String {
-        return suite
-    }
-
-    fun returnRank(): String {
-        return rank
-    }
-}
-
-
 fun main() {
-    val packOfCards = GameDeck.newDeck()
+    val packOfCards = Player.GameDeck.newDeck()
     val humanDeck = mutableListOf<Card>()
     val pcDeck = mutableListOf<Card>()
     val humanWinCards = mutableListOf<Card>()
@@ -120,27 +14,24 @@ fun main() {
     if (turn == 1) human.first = true else pc.first = true
     print("Initial cards on the table: ")
     println(tableCards.joinToString(" "))
+    //println("PC'S deck is - ${pc.inHand}")
     gamePlay(human, pc, packOfCards, tableCards, turn)
     print("Game Over")
 }
 
-/*
-Initializing variables and game environment
- */
+/* Initializing variables and game environment  */
 fun gameInit(
     human: Player,
     pc: Player,
     packOfCards: MutableList<Card>,
     tableCards: MutableList<Card>,
 ) {
-    tableCards.addAll(GameDeck.transToTableCards(packOfCards))
-    human.fillDeck(human.inHand, packOfCards)
-    pc.fillDeck(pc.inHand, packOfCards)
+    tableCards.addAll(Player.GameDeck.transToTableCards(packOfCards))
+    human.fillDeck(packOfCards)
+    pc.fillDeck(packOfCards)
 }
 
-/*
-First dialogue function
- */
+/* First dialogue function */
 fun gameFirstPrompt(): Int {
     println("Indigo Card Game")
     while (true) {
@@ -153,10 +44,7 @@ fun gameFirstPrompt(): Int {
         }
     }
 }
-
-/*
-Gameplay processing function
- */
+/* Gameplay processing function */
 fun gamePlay(
     human: Player,
     pc: Player,
@@ -165,37 +53,41 @@ fun gamePlay(
 ) {
     var _firstMove = firstMove
     var choice: String
+    var currentCard:Card?
 
     while (human.winCards.size + pc.winCards.size + tableCards.size < 52) {
         if (tableCards.size == 0) {
+            println()
             println("No cards on the table")
         } else {
+            println()
             println("${tableCards.size} cards on the table, and the top card is ${tableCards.last()}")
         }
         if (_firstMove == 1) { /* Human's move starts here */
             print("Cards in hand: ")
             choice = humanMovePromptExecution(human.inHand)
+
             if (choice == "exit") return
             else {
-                val humChoice = choice.toInt() - 1
-                gameMove(human, pc, tableCards, packOfCards, humChoice)
+                currentCard = human.inHand[choice.toInt() - 1]
+                gameMove(human, pc, tableCards, packOfCards, currentCard )
                 _firstMove++
             }
         } else { /* PC's move starts here */
-            var pcChoice = 0
-            if (pc.inHand.size == 1) {
-                println("Computer plays ${pc.inHand[pcChoice]}")
+            println(pc.inHand.joinToString(" "))
+            currentCard = if (tableCards.isEmpty()) {
+                emptyMove(pc.inHand)
             } else {
-                val choiceCard = pc.getRandomCard(pc)
-                pcChoice = pc.getCardPos(pc.inHand, choiceCard)
-                println("Computer plays $choiceCard")
+                pcMove(pc.inHand,tableCards)
             }
-            gameMove(pc, human, tableCards, packOfCards, pcChoice)
+            println("Computer plays $currentCard")
+            gameMove(pc, human, tableCards, packOfCards, currentCard!!)
             _firstMove--
         }
     }
     /* Start of processing of final calculations in the end of the game*/
     if (tableCards.size > 0) {
+        println()
         println("${tableCards.size} cards on the table, and the top card is ${tableCards.last()}")
         if (human.lastWin) {
             human.winCards.addAll(tableCards)
@@ -203,11 +95,12 @@ fun gamePlay(
             pc.winCards.addAll(tableCards)
         } else if (human.first) {
             human.winCards.addAll(tableCards)
-        } else {
+        }
+    }   else {
+            println()
             println("No cards on the table")
             pc.winCards.addAll(tableCards)
         }
-    }
     scoreCalc(human, pc)
     if (human.winCards.size == pc.winCards.size && human.first) {
         human.score += 3
@@ -225,30 +118,30 @@ fun gameMove(
     opposite: Player,
     tableCards: MutableList<Card>,
     packOfCards: MutableList<Card>,
-    num: Int,
+    card: Card,
 ) {
-    if (tableCards.size > 0 && winCardCheck(mover, tableCards, num)) {
+    if (tableCards.size > 0 && winCardCheck(tableCards,card)) {
         println("${mover.name} wins cards")
         mover.lastWin = true
         opposite.lastWin = false
-        GameDeck.ifWinTransferCards(mover.inHand, mover.winCards, tableCards, num)
+        Player.GameDeck.ifWinTransferCards(mover.inHand, mover.winCards, tableCards, card)
         scoreCalc(mover, opposite)
-        if (mover.winCards.size + opposite.winCards.size < 52) {
+        if (mover.winCards.size + opposite.winCards.size <= 52) {
             printInGameScore(mover, opposite)
         }
     } else {
-        tableCards.add(mover.inHand[num])
-        mover.inHand.removeAt(num)
+        tableCards.add(card)
+        mover.removeCard(card)
     }
     if (mover.inHand.size == 0 && packOfCards.size != 0) {
-        mover.fillDeck(mover.inHand, packOfCards)
+        mover.fillDeck(packOfCards)
     }
 }
 
 /* Checking if player's card wins */
-fun winCardCheck(player: Player, tableCards: MutableList<Card>, num: Int): Boolean {
-    return player.inHand[num].returnSuite() == tableCards[tableCards.lastIndex].returnSuite() ||
-            player.inHand[num].returnRank() == tableCards[tableCards.lastIndex].returnRank()
+fun winCardCheck(tableCards: MutableList<Card>, card: Card): Boolean {
+    return card.suite() == tableCards.last().suite() ||
+            card.rank() == tableCards.last().rank()
 }
 
 /* Processing of human's move choice */
@@ -295,5 +188,140 @@ fun printInGameScore(player1: Player, player2: Player) {
     } else {
         println("Score: Player ${player2.score} - Computer ${player1.score}")
         println("Cards: Player ${player2.winCards.size} - Computer ${player1.winCards.size}")
+    }
+}
+/* Choice of a card to move when there are no cards on the table */
+private fun emptyMove(inHand: MutableList<Card>): Card {
+    val move: Card?
+    val suites = inHand.groupBy { it.suite() }.toMutableMap().filterValues { it.size > 1 }
+    val ranks = inHand.groupBy { it.rank() }.toMutableMap().filterValues { it.size > 1 }
+    return when {
+        suites.isNotEmpty() -> {
+            move = (suites.values).toMutableList().random().random()
+            move
+        }
+        ranks.isNotEmpty() && suites.isEmpty() -> {
+            move = (ranks.values).toMutableList().random().random()
+            move
+        }
+        else -> inHand.random()
+    }
+}
+/* Choice of a suite or rank to move */
+private fun suiteOrRankSearch(inHand: MutableList<Card>, suite: String, rank: String): Card? {
+    val suitList:MutableList<Card>? = mutableListOf()
+    val rankList: MutableList<Card>? = mutableListOf()
+    suitList?.addAll(inHand)
+    rankList?.addAll(inHand)
+    suitList?.removeIf { it.suite() != suite } ?: suitList?.isEmpty()
+    rankList?.removeIf { it.rank() != rank } ?: rankList?.isEmpty()
+    if (suitList?.size!! > 0 && suitList.size >= rankList?.size!!) {
+        return suitList.random()
+    } else if (rankList?.size!! > 0) {
+        return rankList.random()
+    }
+    return inHand.random()
+}
+
+/* PC's putting a card on the table */
+fun pcMove(inHand: MutableList<Card>, tableCards: MutableList<Card>): Card? {
+    return if (inHand.any { it.suite() == tableCards.lastOrNull()?.suite() } || inHand.any {
+            it.rank() == tableCards.lastOrNull()?.rank()
+        }) {
+        suiteOrRankSearch(inHand, tableCards.last().suite(), tableCards.last().rank())
+    } else {
+        emptyMove(inHand)
+
+    }
+}
+class Card(private val rank: String, private val suite: String) {
+    override fun toString(): String {
+        return "$rank$suite"
+    }
+    fun suite(): String {
+        return suite
+    }
+    fun rank(): String {
+        return rank
+    }
+}
+
+open class Player(
+    val inHand: MutableList<Card>,
+    val winCards: MutableList<Card>,
+    open val name: String,
+    var lastWin: Boolean = false,
+    var first: Boolean = false
+) {
+    var score = 0
+
+    /* Player draws cards from the deck */
+    fun fillDeck(packOfCards: MutableList<Card>): MutableList<Card> {
+        inHand.addAll(GameDeck.transferCards(packOfCards))
+        return inHand
+    }
+
+    /* score calculation */
+    fun scoreCard(player: Player) {
+        var counter = 0
+        for (it in player.winCards) {
+            if (it.rank() == "A" || it.rank() == "Q" || it.rank() == "K"
+                || it.rank() == "J" || it.rank() == "10"
+            )
+                counter++
+        }
+        player.score = counter
+    }
+
+    fun removeCard(card: Card) {
+        inHand.removeIf { it == card }
+    }
+
+
+    object GameDeck {
+        private val ranks = mutableListOf("A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K")
+        private val suites = mutableListOf("♦", "♥", "♠", "♣")
+        private lateinit var packOfCards: MutableList<Card>
+
+        /*Transferring to the table 4 cards at the beginning of the game*/
+        fun transToTableCards(packOfCards: MutableList<Card>): MutableList<Card> {
+            val trans = packOfCards.slice(0..3)
+            packOfCards.removeAll(packOfCards.slice(0..3))
+            return trans.toMutableList()
+        }
+
+        /* transferring cards from the game deck to the players' decks */
+        fun transferCards(
+            packOfCards: MutableList<Card>
+        ): MutableList<Card> {
+            val transfercards = mutableListOf<Card>()
+            transfercards.addAll(packOfCards.slice(0..5))
+            packOfCards.removeAll(packOfCards.slice(0..5))
+            return transfercards
+
+        }
+
+        /* Generating of the new shuffled game deck */
+        fun newDeck(): MutableList<Card> {
+            packOfCards = mutableListOf()
+            for (suite in suites) {
+                for (rank in ranks) {
+                    packOfCards.add(Card(rank, suite))
+                }
+            }
+            return packOfCards.shuffled().toMutableList()
+        }
+
+        /* transferring cards from table to winner */
+        fun ifWinTransferCards(
+            inHand: MutableList<Card>,
+            winCards: MutableList<Card>,
+            tableCards: MutableList<Card>,
+            card: Card
+        ) {
+            winCards.addAll(tableCards + card)
+            tableCards.clear()
+            inHand.removeIf { it == card }
+        }
     }
 }

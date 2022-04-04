@@ -44,7 +44,7 @@
     </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_11">
-    <output url="file://$MODULE_DIR$/../../../../../Topics/Hierarchy of exceptions/ArithmeticException/out/production/classes" />
+    <output url="file://$MODULE_DIR$/../../../../../Topics/Hierarchy of exceptions/ArithmeticException/build/classes/java/main" />
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../../../Topics/Hierarchy of exceptions/ArithmeticException/src">
       <sourceFolder url="file://$MODULE_DIR$/../../../../../Topics/Hierarchy of exceptions/ArithmeticException/src" isTestSource="false" />

@@ -62,7 +62,7 @@
     </facet>
   </component>
   <component name="NewModuleRootManager">
-    <output-test url="file://$MODULE_DIR$/../../../../../../Indigo Card Game/task/build/tmp/out/test/classes" />
+    <output-test url="file://$MODULE_DIR$/../../../../../../Indigo Card Game/task/build/tmp/build/classes/java/test" />
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../../../../Indigo Card Game/task/build/tmp/src/test" />
     <content url="file://$MODULE_DIR$/../../../../../../Indigo Card Game/task/build/tmp/test">

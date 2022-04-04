@@ -44,7 +44,7 @@
     </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_11">
-    <output url="file://$MODULE_DIR$/../../../../../Topics/Lambda expressions/Theory/out/production/classes" />
+    <output url="file://$MODULE_DIR$/../../../../../Topics/Lambda expressions/Theory/build/classes/java/main" />
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../../../Topics/Lambda expressions/Theory/src">
       <sourceFolder url="file://$MODULE_DIR$/../../../../../Topics/Lambda expressions/Theory/src" isTestSource="false" />

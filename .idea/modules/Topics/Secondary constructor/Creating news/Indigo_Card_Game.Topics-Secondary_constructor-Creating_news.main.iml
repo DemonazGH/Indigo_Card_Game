@@ -44,7 +44,7 @@
     </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_11">
-    <output url="file://$MODULE_DIR$/../../../../../Topics/Secondary constructor/Creating news/out/production/classes" />
+    <output url="file://$MODULE_DIR$/../../../../../Topics/Secondary constructor/Creating news/build/classes/java/main" />
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../../../Topics/Secondary constructor/Creating news/src">
       <sourceFolder url="file://$MODULE_DIR$/../../../../../Topics/Secondary constructor/Creating news/src" isTestSource="false" />

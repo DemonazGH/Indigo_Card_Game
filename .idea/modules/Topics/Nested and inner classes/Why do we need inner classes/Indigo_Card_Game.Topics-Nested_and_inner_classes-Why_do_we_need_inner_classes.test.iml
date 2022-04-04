@@ -62,7 +62,7 @@
     </facet>
   </component>
   <component name="NewModuleRootManager">
-    <output-test url="file://$MODULE_DIR$/../../../../../Topics/Nested and inner classes/Why do we need inner classes/out/test/classes" />
+    <output-test url="file://$MODULE_DIR$/../../../../../Topics/Nested and inner classes/Why do we need inner classes/build/classes/java/test" />
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../../../Topics/Nested and inner classes/Why do we need inner classes/src/test" />
     <content url="file://$MODULE_DIR$/../../../../../Topics/Nested and inner classes/Why do we need inner classes/test" />

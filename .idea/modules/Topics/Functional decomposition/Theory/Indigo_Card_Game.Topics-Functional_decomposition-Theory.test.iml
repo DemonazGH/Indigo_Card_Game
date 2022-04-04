@@ -62,7 +62,7 @@
     </facet>
   </component>
   <component name="NewModuleRootManager">
-    <output-test url="file://$MODULE_DIR$/../../../../../Topics/Functional decomposition/Theory/out/test/classes" />
+    <output-test url="file://$MODULE_DIR$/../../../../../Topics/Functional decomposition/Theory/build/classes/java/test" />
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../../../Topics/Functional decomposition/Theory/src/test" />
     <content url="file://$MODULE_DIR$/../../../../../Topics/Functional decomposition/Theory/test" />

@@ -62,7 +62,7 @@
     </facet>
   </component>
   <component name="NewModuleRootManager">
-    <output-test url="file://$MODULE_DIR$/../../../../../Topics/Hierarchy of exceptions/Fix the code/out/test/classes" />
+    <output-test url="file://$MODULE_DIR$/../../../../../Topics/Hierarchy of exceptions/Fix the code/build/classes/java/test" />
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../../../Topics/Hierarchy of exceptions/Fix the code/src/test" />
     <content url="file://$MODULE_DIR$/../../../../../Topics/Hierarchy of exceptions/Fix the code/test" />

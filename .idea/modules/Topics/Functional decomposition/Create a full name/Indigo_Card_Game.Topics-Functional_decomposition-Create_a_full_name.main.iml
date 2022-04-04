@@ -44,7 +44,7 @@
     </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_11">
-    <output url="file://$MODULE_DIR$/../../../../../Topics/Functional decomposition/Create a full name/out/production/classes" />
+    <output url="file://$MODULE_DIR$/../../../../../Topics/Functional decomposition/Create a full name/build/classes/java/main" />
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../../../Topics/Functional decomposition/Create a full name/src">
       <sourceFolder url="file://$MODULE_DIR$/../../../../../Topics/Functional decomposition/Create a full name/src" isTestSource="false" />

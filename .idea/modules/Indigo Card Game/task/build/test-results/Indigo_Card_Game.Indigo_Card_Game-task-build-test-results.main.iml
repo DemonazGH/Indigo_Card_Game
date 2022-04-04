@@ -44,7 +44,7 @@
     </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_11">
-    <output url="file://$MODULE_DIR$/../../../../../../Indigo Card Game/task/build/test-results/out/production/classes" />
+    <output url="file://$MODULE_DIR$/../../../../../../Indigo Card Game/task/build/test-results/build/classes/java/main" />
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../../../../Indigo Card Game/task/build/test-results/src" />
     <orderEntry type="inheritedJdk" />

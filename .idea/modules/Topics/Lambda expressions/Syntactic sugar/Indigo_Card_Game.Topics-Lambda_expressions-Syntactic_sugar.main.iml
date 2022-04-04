@@ -44,7 +44,7 @@
     </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_11">
-    <output url="file://$MODULE_DIR$/../../../../../Topics/Lambda expressions/Syntactic sugar/out/production/classes" />
+    <output url="file://$MODULE_DIR$/../../../../../Topics/Lambda expressions/Syntactic sugar/build/classes/java/main" />
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../../../Topics/Lambda expressions/Syntactic sugar/src">
       <sourceFolder url="file://$MODULE_DIR$/../../../../../Topics/Lambda expressions/Syntactic sugar/src" isTestSource="false" />

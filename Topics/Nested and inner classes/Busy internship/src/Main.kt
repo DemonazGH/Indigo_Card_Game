@@ -6,5 +6,5 @@ class Intern(val weeklyWorkload: Int) {
         val extraHoursPay = 2.8
     }
 
-    val weeklySalary = ...
+    //val weeklySalary = ...
 }

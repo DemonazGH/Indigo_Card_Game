@@ -62,7 +62,7 @@
     </facet>
   </component>
   <component name="NewModuleRootManager">
-    <output-test url="file://$MODULE_DIR$/../../../../../Topics/Lambda expressions/Polynomial/out/test/classes" />
+    <output-test url="file://$MODULE_DIR$/../../../../../Topics/Lambda expressions/Polynomial/build/classes/java/test" />
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../../../Topics/Lambda expressions/Polynomial/src/test" />
     <content url="file://$MODULE_DIR$/../../../../../Topics/Lambda expressions/Polynomial/test" />

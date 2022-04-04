@@ -44,7 +44,7 @@
     </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_11">
-    <output url="file://$MODULE_DIR$/../../../../../Topics/Nested and inner classes/Why do we need inner classes/out/production/classes" />
+    <output url="file://$MODULE_DIR$/../../../../../Topics/Nested and inner classes/Why do we need inner classes/build/classes/java/main" />
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../../../Topics/Nested and inner classes/Why do we need inner classes/src">
       <sourceFolder url="file://$MODULE_DIR$/../../../../../Topics/Nested and inner classes/Why do we need inner classes/src" isTestSource="false" />

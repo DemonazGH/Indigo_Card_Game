@@ -44,7 +44,7 @@
     </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_11">
-    <output url="file://$MODULE_DIR$/../../../../../Topics/Floating-point types/What is the result/out/production/classes" />
+    <output url="file://$MODULE_DIR$/../../../../../Topics/Floating-point types/What is the result/build/classes/java/main" />
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../../../Topics/Floating-point types/What is the result/src">
       <sourceFolder url="file://$MODULE_DIR$/../../../../../Topics/Floating-point types/What is the result/src" isTestSource="false" />

@@ -62,7 +62,7 @@
     </facet>
   </component>
   <component name="NewModuleRootManager">
-    <output-test url="file://$MODULE_DIR$/../../../../../Topics/Null safety/Fake operator/out/test/classes" />
+    <output-test url="file://$MODULE_DIR$/../../../../../Topics/Null safety/Fake operator/build/classes/java/test" />
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../../../Topics/Null safety/Fake operator/src/test" />
     <content url="file://$MODULE_DIR$/../../../../../Topics/Null safety/Fake operator/test" />

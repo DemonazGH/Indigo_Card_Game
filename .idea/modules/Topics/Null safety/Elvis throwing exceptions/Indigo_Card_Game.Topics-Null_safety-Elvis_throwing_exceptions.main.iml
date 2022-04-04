@@ -44,7 +44,7 @@
     </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_11">
-    <output url="file://$MODULE_DIR$/../../../../../Topics/Null safety/Elvis throwing exceptions/out/production/classes" />
+    <output url="file://$MODULE_DIR$/../../../../../Topics/Null safety/Elvis throwing exceptions/build/classes/java/main" />
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../../../Topics/Null safety/Elvis throwing exceptions/src">
       <sourceFolder url="file://$MODULE_DIR$/../../../../../Topics/Null safety/Elvis throwing exceptions/src" isTestSource="false" />

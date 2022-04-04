@@ -62,7 +62,7 @@
     </facet>
   </component>
   <component name="NewModuleRootManager">
-    <output-test url="file://$MODULE_DIR$/../../../../../Topics/Floating-point types/What is the result/out/test/classes" />
+    <output-test url="file://$MODULE_DIR$/../../../../../Topics/Floating-point types/What is the result/build/classes/java/test" />
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../../../Topics/Floating-point types/What is the result/src/test" />
     <content url="file://$MODULE_DIR$/../../../../../Topics/Floating-point types/What is the result/test" />
